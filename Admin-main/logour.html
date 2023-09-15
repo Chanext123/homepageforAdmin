@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Admin Login</title>
+    <style>
+        /* ... (previous styles) ... */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f5f5f5;
+        }
+
+        #login-box {
+            width: 400px;
+            padding: 50px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        #login-box img {
+            width: 50px;
+            display: flex;
+            border-radius: 25px;
+            border: 1px solid #FF7C03;
+        }
+
+        #login-box h2 {
+            margin-bottom: 30px;
+            text-align: center;
+            color: #FF7C03;
+        }
+
+        ::placeholder {
+            color: #F8AF5B;
+        }
+
+        #username,
+        #password {
+            width: 95%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #FF7C03;
+            border-radius: 3px;
+            outline: none;
+            color: #FF7C03;
+        }
+
+        #login-button {
+            width: 100%;
+            padding: 10px;
+            background-color: #FF7C03;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            border: 1px solid transparent;
+            font-weight: 600;
+        }
+
+        #login-button:hover {
+            background-color: transparent;
+            color: #FF7C03;
+            border: 1px solid #FF7C03;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="login-box">
+        <center> <img src="img/faviodp.jpg" alt=""></center>
+        <h2>Admin Login</h2>
+        <input type="text" id="username" placeholder="Username">
+        <input type="password" id="password" placeholder="Password">
+        <button id="login-button">Login</button>
+    </div>
+    <script>
+        const loginButton = document.getElementById('login-button');
+
+        // Set default and alternative user credentials
+        const defaultCredentials = {
+            username: 'admin',
+            password: '1234'
+        };
+
+        const alternativeCredentials = {
+            username: 'chan',
+            password: 'next'
+        };
+
+        loginButton.addEventListener('click', () => {
+            const enteredUsername = document.getElementById('username').value;
+            const enteredPassword = document.getElementById('password').value;
+
+            // Check if entered credentials match either set of credentials
+            if ((enteredUsername === defaultCredentials.username && enteredPassword === defaultCredentials.password) ||
+                (enteredUsername === alternativeCredentials.username && enteredPassword === alternativeCredentials.password)) {
+                alert('Login successful!');
+                // Redirect to admin dashboard or desired page
+
+                // For example, set a token in localStorage to track user session
+                localStorage.setItem('isLoggedIn', 'true');
+                // Redirect to dashboard or another page
+                window.location.href = 'service.html';
+            } else {
+                alert('Login failed. Please check your credentials.');
+            }
+        });
+    </script>
+</body>
+
+</html>
